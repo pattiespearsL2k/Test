@@ -1,7 +1,6 @@
 package com.womensafety.shajt3ch;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -194,6 +193,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         //Place current location marker
+        //Place current location marker
         latitude = location.getLatitude();
         longitude = location.getLongitude();
         try{
@@ -202,10 +202,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             List<Address> addresses=geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
             String address=addresses.get(0).getAddressLine(0);
             Toast.makeText(MapsActivity.this,"Your current location:"+address, Toast.LENGTH_LONG).show();
-            //intent
-            Intent intent = new Intent(getApplicationContext(), MyService.class);
-            intent.putExtra("message_key", address);
-            startActivity(intent);
+
         }
         catch (Exception e){
             e.printStackTrace();
@@ -220,9 +217,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
-       // Toast.makeText(MapsActivity.this,"Your Current Location", Toast.LENGTH_LONG).show();
+      //  Toast.makeText(MapsActivity.this,"Your Current Location", Toast.LENGTH_LONG).show();
 
-        //Log.d("onLocationChanged", String.format("latitude:%.3f longitude:%.3f",latitude,longitude));
+       // Log.d("onLocationChanged", String.format("latitude:%.3f longitude:%.3f",latitude,longitude));
 
         //stop location updates
         if (mGoogleApiClient != null) {
